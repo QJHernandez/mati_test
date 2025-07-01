@@ -21,16 +21,34 @@ app.post('/coupons/assign', (req: Request, res: Response) => {
   res.json({ received: req.body });
 });
 
-app.post('/coupons/assign/{code}', (req: Request, res: Response) => {
-  res.json({ received: req.body });
+app.post('/coupons/assign/:code', (req: Request, res: Response) => {
+  const { code } = req.params;
+  const data = req.body;
+
+  res.json({
+    message: `Coupon ${code} assigned`,
+    body: data
+  });
 });
 
-app.post('/coupons/lock/{code}', (req: Request, res: Response) => {
-  res.json({ received: req.body });
+app.post('/coupons/lock/:code', (req: Request, res: Response) => {
+  const { code } = req.params;
+  const data = req.body;
+
+  res.json({
+    message: `Coupon ${code} locked`,
+    body: data
+  });
 });
 
-app.post('/coupons/redeem/{code}', (req: Request, res: Response) => {
-  res.json({ received: req.body });
+app.post('/coupons/redeem/:code', (req: Request, res: Response) => {
+  const { code } = req.params;
+  const data = req.body;
+
+  res.json({
+    message: `Coupon ${code} redeemed`,
+    body: data
+  });
 });
 
 app.listen(port, () => {
